@@ -1,0 +1,30 @@
+node_modules/
+.git/
+.vercel/
+*.log
+.env.local
+.env.development
+.env.test
+.env.*.local
+coverage/
+dist/.vite/
+.nyc_output/
+.tmp/
+temp/
+test/
+tests/
+**/*.test.*
+**/*.spec.*
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.map

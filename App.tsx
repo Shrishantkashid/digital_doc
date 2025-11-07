@@ -57,35 +57,49 @@ function App() {
 
   const handleLogin = async (username: string, password: string) => {
     try {
-      // In a real app, you'd validate credentials against a backend
       console.log('Attempting login with:', { username, password });
       
-      // For now, we'll just set isAuthenticated to true
-      // In a real implementation, you would get the user ID from the auth service response
-      const newUserId = 'user-' + Date.now(); // This should be the actual user ID from the database
+      // Simple validation
+      if (!username || !password) {
+        throw new Error('Please enter both username and password');
+      }
+      
+      // For demo purposes, we'll accept any non-empty credentials
+      // In a real app, you would validate against a backend service
+      console.log('Login successful (demo mode)');
+      const newUserId = 'user-' + Date.now();
       setIsAuthenticated(true);
       setUserId(newUserId);
-      setCurrentToolView('landing'); // Navigate to landing page after successful login
+      setCurrentToolView('landing');
     } catch (error) {
       console.error('Login failed:', error);
-      setError(error instanceof Error ? error.message : 'An unknown error occurred');
+      const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+      setError(errorMessage);
+      alert(`Login failed: ${errorMessage}`);
     }
   };
 
   const handleSignup = async (username: string, password: string) => {
     try {
-      // In a real app, you'd register the user and then log them in
       console.log('Attempting signup with:', { username, password });
       
-      // For now, we'll just set isAuthenticated to true
-      // In a real implementation, you would get the user ID from the auth service response
-      const newUserId = 'user-' + Date.now(); // This should be the actual user ID from the database
+      // Simple validation
+      if (!username || !password) {
+        throw new Error('Please enter both username and password');
+      }
+      
+      // For demo purposes, we'll accept any non-empty credentials
+      // In a real app, you would register with a backend service
+      console.log('Signup successful (demo mode)');
+      const newUserId = 'user-' + Date.now();
       setIsAuthenticated(true);
       setUserId(newUserId);
-      setCurrentToolView('landing'); // Navigate to landing page after successful signup
+      setCurrentToolView('landing');
     } catch (error) {
       console.error('Signup failed:', error);
-      setError(error instanceof Error ? error.message : 'An unknown error occurred');
+      const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+      setError(errorMessage);
+      alert(`Signup failed: ${errorMessage}`);
     }
   };
 

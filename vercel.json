@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/src/server/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/$1"
+    }
+  ],
+  "build": {
+    "env": {
+      "NODE_OPTIONS": "--max_old_space_size=4096",
+      "ROLLUP_DISABLE_LOAD_RUST_ON_DEMAND": "1"
+    }
+  },
+  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "chmod +x vercel-build.sh && ./vercel-build.sh"
+}
